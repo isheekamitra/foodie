@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>foodie</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .hero{
+            height: 100vh;
+            background: url(newbg.jpg) ;
+            background-size: cover;
+            background-position: center;
+            overflow-x: hidden;
+            position: relative;
+            opacity: 0.94;
+
+        }
+        .nav-bar{
+            display: flex;
+            padding: 10px 0px;
+            
+        }
+        .nav-logo img{
+            width: 100px;
+            height: 70px;
+            margin-left: 35px;
+            
+        }
+   
+        .nav-links{
+          flex: 1;
+        }
+        .nav-links ul{
+            margin-left: 0px;
+            display: inline;
+        }
+        .nav-links ul li{
+            list-style: none;
+            padding: 15px 15px;
+            display: inline-block;
+            font-size: 1.5em;
+    
+        }
+        .nav-links ul li a{
+         text-decoration: none;
+         color: aliceblue;
+    
+        }
+     
+        .nav-links ul li a::after{
+            content: "";
+            width: 0;
+            height: 2px;
+            background: yellow;
+            display: block;
+            margin: auto;
+            transition: .5s;
+    
+        }
+        .nav-links ul li a:hover::after{
+           width: 100%;
+    
+        }
+       .btn{
+           height: 40px;
+           width: 90px;
+           margin-top: 0px;
+            background: yellow;
+            cursor: pointer;
+            border: 0;
+            font-weight: bold;
+            
+       }
+       .nav-links .btn{
+        float: right;
+        margin-right: 8px;
+       }
+       .banner-title{
+           margin: 40px 80px;
+           color: white;
+           
+       }
+       .banner-title .btn{
+           margin: 10px 3px;
+       }
+       .banner-title h1{
+           font-size: 54px;
+           flex-direction: column;
+       }
+       .banner-title h1 span{
+           color: yellow;
+       }
+       .vertical-bar{
+           height: 100%;
+           background: #000;
+           top: 0;
+           left: 0;
+           position: absolute;
+       }
+       .search-icon{
+           height: 60%;
+           width: 55px;
+       }
+       .search-icon .fa{
+           margin: 25px 13px;
+           display: block;
+           color: #fff;
+           font-size: 30px;
+           cursor: pointer;
+       }
+       .social-icon{
+           height: 33%;
+           width: 55px;
+           background: yellow;
+           padding-top: 27%;
+           bottom: 0;
+           position: absolute;
+                 }
+         .social-icon .fa{
+            margin: 10px 10px;
+           display: block;
+           color:black;
+           border: 1px solid black;
+           border-radius: 55%;
+           font-size: 27px;
+           padding-right: 20px;
+           padding-left: 4px;
+           cursor: pointer;
+         }
+         .notifications{
+             display: flex;
+             
+             width: 270px;
+             height: 105px;
+             right: 0;
+             bottom: 0;
+             position: absolute;
+             background: yellow;
+             align-items: center;
+         }
+         .contents{
+             flex-basis: 50%;
+             padding: 3px 16px;
+         }
+         .notifications-img{
+             flex-basis: 50%;
+         }
+         .notifications-img img{
+             width: 100%;
+             height: 105px;
+             margin-top: 4px;
+             
+         }
+         .contents a{
+             text-decoration: none;
+             color: black;
+             margin: 3px 3px;
+             right: 0;
+             font-size: 15px;
+         }
+         .contents p{
+             text-align: right;
+             margin-top: 2px;
+         }
+         .nav-bar .fa{
+             display: none;
+         }
+         @media (max-width: 700px){
+             .vertical-bar{
+                 display: none;
+
+             }
+             .banner-title{
+                 margin: 80px 70px;
+             }
+             .banner-title h1{
+                 font-size: 40px;
+             }
+             .notifications{
+                 width: 100%;
+             }
+             .nav-bar{
+                 padding: 1px 0px;
+                 flex-wrap: wrap;
+             }
+             .nav-logo img{
+            width: 40px;
+            height: 45px;
+         margin-left: 0px;
+            margin-top: 2px;
+            
+        }
+        .nav-links{
+            flex-direction: column;
+        }
+        .btn{
+            margin-left: 10px;
+        }
+    
+        .fa-bars{
+          position: absolute;
+          right: 20px;
+          top: 10px;
+        }
+        .nav-bar .fa{
+            display: block;
+            color: aliceblue;
+            margin: 5px 6px;
+            font-size: 22px;
+            cursor: pointer;
+        }
+        .nav-links{
+            height: 100vh;
+            width: 200px;
+            background: black;
+            top: 0;
+            right: -200px;
+            position: absolute;
+            text-align: left;
+            z-index: 2;
+            transition: 0.5s;
+        }
+        .nav-links ul a{
+            display: block;
+        }
+        .nav-links .btn{
+        float: left;
+        margin: 0px 14px;
+       }
+         }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="nav-bar">
+            <div class="nav-logo">
+                <img src="logole.png" alt="">
+            </div>
+            <div class="nav-links" id="nav-links">
+                <i class="fa fa-close" onclick="closeMenu()"></i>
+                <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">RECIPIE</a></li>
+                </ul>
+                <button class="btn">SIGN UP</button>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()" ></i>
+        </div>
+        <div class="banner-title">
+            <h1>Food <span>Doesn't have <br> religion.</span> It's a Religion.</h1>
+            <button class="btn">EXPLORE</button>
+        </div>
+        <div class="vertical-bar">
+            <div class="search-icon">
+                <i class="fa fa-th-list"></i>
+                <i class="fa fa-search" ></i>
+            </div>
+            <div class="social-icon">
+                <i class="fa fa-facebook" ></i>
+                <i class="fa fa-instagram" ></i>
+                <i class="fa fa-twitter" ></i>
+                <i class="fa fa-pinterest" ></i>
+            </div>
+        </div>
+            <div class="notifications">
+                <div class="contents">
+                 <small>Subscribe for easy Tutorials to YouTube channel and never miss any new videos.</small>
+                <p>
+                    <a href="">PREV</a><a href="">NEXT</a>
+                </p>
+                </div>
+                <div class="notifications-img">
+                  <img src="khana.jpg" alt="">
+                </div>
+            
+        </div>
+    </div>
+    <script>
+        var show=document.getElementById("nav-links");
+        function showMenu() {
+            show.style.right="0";
+        }
+        function closeMenu() {
+            show.style.right="-200px";
+        }
+    </script>
+</body>
+</html>
